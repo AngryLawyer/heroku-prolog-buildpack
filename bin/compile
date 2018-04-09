@@ -63,5 +63,9 @@ if [[ "z${SOURCES}" == "z" ]]; then
 fi
 
 /app/.local/bin/swipl -q -o ${build}/swipl-heroku -g heroku -t prolog --stand_alone=true -c ${SOURCES}
+
+echo "-----> Copying libraries into root path"
+# TODO: Version independence?
+cp /app/.local/lib/swipl-7.3.20/lib/x86_64-linux/* /app/
 echo "-----> Build succeeded"
 
